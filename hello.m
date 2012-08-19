@@ -1,7 +1,8 @@
 #import <Foundation/Foundation.h>
- 
-int main(int argc,char *argv[])
-{
-	printf("hello Objective-C\n");
-	return 0;
+
+int main(int argc, const char **argv){
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    NSLog(@"hello World!");
+    [pool drain];
+    return 0;
 }
