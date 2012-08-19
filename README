@@ -1,0 +1,22 @@
+Installation:
+先安装需要的类库:
+    sudo apt-get install gnustep
+    sudo apt-get install gnustep-devel
+    sudo apt-get install gobjc
+
+
+
+Compile:
+    gcc  -I  /usr/include/GNUstep hello.m -fconstant-string-class=NSConstantString -lobjc  -lgnustep-base
+
+
+
+编译过程中遇到的错误：
+1、hello.m:2:34: 致命错误： Foundation/Foundation.h：没有那个文件或目录
+解决方案：
+-I /usr/include/GNUstep，确认链接库正确，可以使用sudo find / -name Foundation.h 查找是否存在
+
+2、/usr/include/GNUstep/Foundation/NSException.h:42:2: 错误： #error The current setting for native-objc-exceptions does not match that of gnustep-base … please correct this.
+解决方案：
+vim /usr/include/GNUstep/GNUstepBase/GSConfig.h
+找到BASE_NATIVE_OBJC_EXCEPTIONS改为0
